@@ -37,8 +37,9 @@ class LinkedList {
 
     TreeNode listToBTRecur(int n) {
 
-        if (n <= 0)
+        if (n <= 0) {
             return null;
+        }
 
         // Construct Left Subtree
         TreeNode left = listToBTRecur(n / 2);
@@ -77,8 +78,9 @@ class LinkedList {
 
         new_node.next = head;
 
-        if (head != null)
+        if (head != null) {
             head.prev = new_node;
+        }
 
         head = new_node;
     }
@@ -91,13 +93,15 @@ class LinkedList {
         }
     }
 
-    // Preorder Display Method
-    void preOrder(TreeNode node) {
-        if (node == null)
+    // Inorder Display Method
+    void Inorder(TreeNode node) {
+        if (node == null) {
             return;
+        }
+
+        Inorder(node.left);
         System.out.print(node.data + " ");
-        preOrder(node.left);
-        preOrder(node.right);
+        Inorder(node.right);
     }
 
     // Main Method
@@ -124,8 +128,8 @@ class LinkedList {
         // Call List to Binary Tree Method and Display Result
         System.out.println("\n");
 
-        System.out.println("Pre-Order BST Display ");
-        llist.preOrder(root);
+        System.out.println("Inorder BST Display ");
+        llist.Inorder(root);
         System.out.println("\n");
     }
 }
