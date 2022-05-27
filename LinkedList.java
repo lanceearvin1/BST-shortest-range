@@ -111,6 +111,14 @@ class LinkedList {
         LinkedList llist = new LinkedList();
 
         // Add elements to Linked List
+        // llist.push(14);
+        // llist.push(13);
+        // llist.push(12);
+        // llist.push(11);
+        // llist.push(10);
+        // llist.push(9);
+        // llist.push(8);
+
         llist.push(7);
         llist.push(6);
         llist.push(5);
