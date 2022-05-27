@@ -26,11 +26,11 @@ class LinkedList {
     }
 
     // Linked List to Binary Tree Method
-    // Continously divides linked list into two. Uses uses middle element as root
+    // Recursively divides linked list into two. Uses uses middle element as root
     // then as left and right elements
 
     TreeNode listToBT() {
-        int n = countreeNodes(head);
+        int n = counTreeNodes(head);
 
         return listToBTRecur(n);
     }
@@ -59,7 +59,7 @@ class LinkedList {
     }
 
     // Count Method for Number of Elements in Linked List
-    int countreeNodes(ListNode head) {
+    int counTreeNodes(ListNode head) {
         int count = 0;
         ListNode temp = head;
         while (temp != null) {
