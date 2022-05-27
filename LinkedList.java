@@ -79,29 +79,18 @@ class LinkedList {
         return count;
     }
 
-    /*
-     * Function to insert a node at the beginning of
-     * the Doubly Linked List
-     */
-
+    // Add Data to Beginning of Linked List
     void push(int new_data) {
         /* allocate node */
         ListNode new_node = new ListNode(new_data);
 
-        /*
-         * since we are adding at the beginning,
-         * prev is always NULL
-         */
         new_node.prev = null;
 
-        /* link the old list off the new node */
         new_node.next = head;
 
-        /* change prev of head node to new node */
         if (head != null)
             head.prev = new_node;
 
-        /* move the head to point to the new node */
         head = new_node;
     }
 
