@@ -43,10 +43,7 @@ class LinkedList {
         // Construct Left Subtree
         TreeNode left = listToBTRecur(n / 2);
 
-        /*
-         * head_ref now refers to middle node,
-         * make middle node as root of BST
-         */
+        // Turn Middle of the List to Root Node of the Tree
         TreeNode root = new TreeNode(head.data);
 
         // Set pointer to left subtree
@@ -58,11 +55,7 @@ class LinkedList {
          */
         head = head.next;
 
-        /*
-         * Recursively construct the right subtree and link it
-         * with root. The number of nodes in right subtree is
-         * total nodes - nodes in left subtree - 1 (for root)
-         */
+        // Allocates Data to Right Subtree
         root.right = listToBTRecur(n - n / 2 - 1);
 
         return root;
