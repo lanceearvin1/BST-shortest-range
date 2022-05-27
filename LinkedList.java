@@ -43,16 +43,12 @@ class LinkedList {
         // Construct Left Subtree
         TreeNode left = listToBTRecur(n / 2);
 
-        // Turn Middle of the List to Root Node of the Tree
+        // Set Middle of List to Root Node of the Tree
         TreeNode root = new TreeNode(head.data);
 
         // Set pointer to left subtree
         root.left = left;
 
-        /*
-         * Change head pointer of Linked List for parent
-         * recursive calls
-         */
         head = head.next;
 
         // Allocates Data to Right Subtree
@@ -120,13 +116,16 @@ class LinkedList {
         llist.push(1);
 
         // Display Linked List
-        System.out.println("Given Linked List ");
+        System.out.println("\nGiven Linked List ");
         llist.printList(head);
 
-        // Call List to Binary Tree Method and Display Result
         TreeNode root = llist.listToBT();
-        System.out.println("");
+
+        // Call List to Binary Tree Method and Display Result
+        System.out.println("\n");
+
         System.out.println("Pre-Order Traversal of constructed BST ");
         llist.preOrder(root);
+        System.out.println("\n");
     }
 }
