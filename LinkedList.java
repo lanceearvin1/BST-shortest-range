@@ -1,60 +1,53 @@
 class LinkedList {
-    // asdfa
-    /* head node of link list */
-    static LNode head;
 
-    /* Link list Node */
-    class LNode {
+    // Instance Variables
+    static ListNode head;
+
+    // Linked List Node
+    class ListNode {
         int data;
-        LNode next, prev;
+        ListNode next, prev;
 
-        LNode(int d) {
+        ListNode(int d) {
             data = d;
             next = prev = null;
         }
     }
 
-    /* A Binary Tree Node */
-    class TNode {
+    // Binary Tree Node
+    class TreeNode {
         int data;
-        TNode left, right;
+        TreeNode left, right;
 
-        TNode(int d) {
+        TreeNode(int d) {
             data = d;
             left = right = null;
         }
     }
 
-    /*
-     * This function counts the number of nodes in Linked List
-     * and then calls sortedListToBSTRecur() to construct BST
-     */
-    TNode sortedListToBST() {
-        /* Count the number of nodes in Linked List */
-        int n = countNodes(head);
+    // Linked List to Binary Tree Method
+    // Continously divides linked list into two. Uses uses middle element as root
+    // then as left and right elements
 
-        /* Construct BST */
-        return sortedListToBSTRecur(n);
+    TreeNode listToBT() {
+        int n = countreeNodes(head);
+
+        return listToBTRecur(n);
     }
 
-    /*
-     * The main function that constructs balanced BST and
-     * returns root of it.
-     * n --> No. of nodes in the Doubly Linked List
-     */
-    TNode sortedListToBSTRecur(int n) {
-        /* Base Case */
+    TreeNode listToBTRecur(int n) {
+
         if (n <= 0)
             return null;
 
-        /* Recursively construct the left subtree */
-        TNode left = sortedListToBSTRecur(n / 2);
+        // Construct Left Subtree
+        TreeNode left = listToBTRecur(n / 2);
 
         /*
          * head_ref now refers to middle node,
          * make middle node as root of BST
          */
-        TNode root = new TNode(head.data);
+        TreeNode root = new TreeNode(head.data);
 
         // Set pointer to left subtree
         root.left = left;
@@ -70,19 +63,15 @@ class LinkedList {
          * with root. The number of nodes in right subtree is
          * total nodes - nodes in left subtree - 1 (for root)
          */
-        root.right = sortedListToBSTRecur(n - n / 2 - 1);
+        root.right = listToBTRecur(n - n / 2 - 1);
 
         return root;
     }
 
-    /* UTILITY FUNCTIONS */
-    /*
-     * A utility function that returns count of nodes in a
-     * given Linked List
-     */
-    int countNodes(LNode head) {
+    // Count Method for Number of Elements in Linked List
+    int countreeNodes(ListNode head) {
         int count = 0;
-        LNode temp = head;
+        ListNode temp = head;
         while (temp != null) {
             temp = temp.next;
             count++;
@@ -94,9 +83,10 @@ class LinkedList {
      * Function to insert a node at the beginning of
      * the Doubly Linked List
      */
+
     void push(int new_data) {
         /* allocate node */
-        LNode new_node = new LNode(new_data);
+        ListNode new_node = new ListNode(new_data);
 
         /*
          * since we are adding at the beginning,
@@ -115,16 +105,16 @@ class LinkedList {
         head = new_node;
     }
 
-    /* Function to print nodes in a given linked list */
-    void printList(LNode node) {
+    // Print List Method
+    void printList(ListNode node) {
         while (node != null) {
             System.out.print(node.data + " ");
             node = node.next;
         }
     }
 
-    /* A utility function to print preorder traversal of BST */
-    void preOrder(TNode node) {
+    // Preorder Display Method
+    void preOrder(TreeNode node) {
         if (node == null)
             return;
         System.out.print(node.data + " ");
@@ -132,14 +122,13 @@ class LinkedList {
         preOrder(node.right);
     }
 
-    /* Driver program to test above functions */
+    // Main Method
     public static void main(String[] args) {
+
+        // Linked List Creation
         LinkedList llist = new LinkedList();
 
-        /*
-         * Let us create a sorted linked list to test the functions
-         * Created linked list will be 7->6->5->4->3->2->1
-         */
+        // Add elements to Linked List
         llist.push(7);
         llist.push(6);
         llist.push(5);
@@ -148,15 +137,14 @@ class LinkedList {
         llist.push(2);
         llist.push(1);
 
+        // Display Linked List
         System.out.println("Given Linked List ");
         llist.printList(head);
 
-        /* Convert List to BST */
-        TNode root = llist.sortedListToBST();
+        // Call List to Binary Tree Method and Display Result
+        TreeNode root = llist.listToBT();
         System.out.println("");
         System.out.println("Pre-Order Traversal of constructed BST ");
         llist.preOrder(root);
     }
 }
-
-// This code has been contributed by Mayank Jaiswal(mayank_24)
