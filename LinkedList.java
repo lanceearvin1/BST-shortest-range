@@ -30,7 +30,7 @@ class LinkedList {
     // then as left and right elements
 
     TreeNode listToBT() {
-        int n = counTreeNodes(head);
+        int n = countTreeNodes(head);
 
         return listToBTRecur(n);
     }
@@ -59,7 +59,7 @@ class LinkedList {
     }
 
     // Count Method for Number of Elements in Linked List
-    int counTreeNodes(ListNode head) {
+    int countTreeNodes(ListNode head) {
         int count = 0;
         ListNode temp = head;
         while (temp != null) {
