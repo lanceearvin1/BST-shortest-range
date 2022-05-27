@@ -69,9 +69,9 @@ class LinkedList {
     }
 
     // Add Data to Beginning of Linked List
-    void push(int new_data) {
+    void push(int data) {
         /* allocate node */
-        ListNode new_node = new ListNode(new_data);
+        ListNode new_node = new ListNode(data);
 
         new_node.prev = null;
 
@@ -116,7 +116,7 @@ class LinkedList {
         llist.push(1);
 
         // Display Linked List
-        System.out.println("\nGiven Linked List ");
+        System.out.println("\nLinked List Elements");
         llist.printList(head);
 
         TreeNode root = llist.listToBT();
@@ -124,7 +124,7 @@ class LinkedList {
         // Call List to Binary Tree Method and Display Result
         System.out.println("\n");
 
-        System.out.println("Pre-Order Traversal of constructed BST ");
+        System.out.println("Pre-Order BST Display ");
         llist.preOrder(root);
         System.out.println("\n");
     }
